@@ -1,0 +1,109 @@
+//Declaração de variavel string. Declare a  name string variable in Apex
+String meuNome ='Gustavo ';
+//Declaração de variavel INTEGER. Declare a age INTEGER variable in Apex
+Integer idade = 23;
+//Declaração de variavel DECIMAL. Declare a height and weight DECIMAL variable in Apex
+Decimal altura = 1.80;
+Decimal	peso= 74;
+//booleano true or false
+Boolean teste = true;
+
+//saida de valores das variaveis Print informations on log
+System.debug(meuNome);
+System.debug(idade);
+System.debug(altura);
+System.debug(peso);
+System.debug(teste);
+
+// concatenação para mostrar tudo em uma unica saida e \n para dar uma quebra de linha
+System.debug('Nome: '+ meuNome +'\n' + 
+			' Idade: '+ idade +'\n' + 
+			' Altura: '+altura+ '\n'+
+			' Peso: '+ peso +'\n' + 
+			' Teste: '+teste);
+
+
+//Exemplo de criação de empresa simples
+
+//Declaração de variavel string. Declare a  name string variable in Apex
+String nomeEmpresa, telefone, cnpj;
+
+//ouuuuu
+
+String  nomeEmpresa ='Bolinho de queijo corp';
+String  telefone = '+55 (15) 3239-4457'; 
+String  cnpj = '201.235.41/0001-24';
+
+//saida de valores das variaveis Print informations on log
+// concatenação para mostrar tudo em uma unica saida e \n para dar uma quebra de linha
+System.debug(
+	' Nome da Empresa: '+ nomeEmpresa +'\n' + 
+	' CNPJ: '+ cnpj +'\n' + 
+	' Telefone: '+telefone
+);
+
+
+Integer a =10;
+Integer b =20;
+Integer c =30;
+Integer d =40;
+
+Integer s, sb, m, div;
+
+	s = a + a;
+	sb = b - a;
+	m = b *c;
+	div = d/a;
+
+System.debug(
+	' Mais +: '+ s +'\n' + 
+	' Menos-: '+ sb +'\n' + 
+	' multiplicacao*: '+m+'\n' + 
+	'Divisao/:'+div
+);
+
+
+// exemplo de contador 
+Integer a=0;
+Integer b=0;
+
+while(a<=10){
+    System.debug(' \n A++: '+ a++);
+}
+
+
+
+System.debug('Agora com ++a');
+while(b<=10){
+    System.debug(' \n A++: '+ ++b);
+}
+
+//Operador ternário
+//O operador ternário realiza um teste de uma 
+//condição que retorna um valor se true e outro se for false.  
+// Ele possui a seguinte estrutura: 
+//condição ? retornoTrue : retornoFalse. 
+
+// ++ = Soma +1
+// * = Multiplicador
+// ? = condição
+// : = retorna verdadeiro e se for falso
+
+Integer teste = 10;
+string maior = teste >= 10 ? 'Maior ou igual':'menor';
+system.debug('O teste de variável' + maior);
+
+//função para deixar a primeira letra do nome maiusculo 
+
+String  nome ='gustavo';
+String  sobrenome='reis';
+
+String meuNomeComMaiusculo = nome.capitalize();
+
+System.debug('Nome completo: '+nome +' '+sobrenome);
+System.debug('Nome completo: '+meuNomeComMaiusculo +' '+sobrenome.capitalize());
+
+//Deixa o texto todo em caixa alta.
+System.debug('Nome completo: '+nome.toUpperCase() +' '+sobrenome.toUpperCase());
+//Deixa o texto todo em caixa baixa.
+System.debug('Nome completo: '+nome.toUpperCase() +' '+sobrenome.toLowerCase());
