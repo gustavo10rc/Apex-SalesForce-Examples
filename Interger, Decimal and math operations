@@ -1,0 +1,90 @@
+/*ATIVIDADE  - UM NOVO COMEÇO
+
+ATENÇÃO 
+Essa atividade deverá ter respostas anexadas no classroom. Em um documento de texto.
+
+1-Escreva um algoritmo que defina  um valor inteiro e escreva na tela seu valor.
+2-Escreva um algoritmo que tenha nome de produto e preço exiba na tela os valores.
+3-Escreva um algoritmo que defina um valor inteiro e escreva (na tela) o seu antecessor. 
+4-Escreva um algoritmo que tenha dois valores reais, some os valores e exiba o resultado.
+5-Escreva um algoritmo que receba uma idade, subtraia do ano atual e exiba o resultado, mostrando ‘Nascido em (valorDaSubtração)’.
+6-Escreva um algoritmo para definir as dimensões de um retângulo (base e altura), calcular e escrever a área do retângulo.
+7-Escreva um algoritmo para definir o salário mensal atual de um funcionário e o percentual de reajuste de 25%. Calcular e escrever o valor do novo salário com o acréscimo do reajuste.
+8-Escreva um algoritmo que atribua 3 notas, calcule a média e exiba o resultado.
+9-Faça um algoritmo que define três notas de um aluno, calcule e escreva a média final deste aluno. Considerar que a média é ponderada e que o peso das notas é 2, 3 e 5. Fórmula para o cálculo da média final é:
+
+*/
+
+
+//1-Escreva um algoritmo que defina  um valor inteiro e escreva na tela seu valor.
+Integer a =10;
+
+System.debug(
+	' Resultado de a: '+ a
+	);
+
+//2-Escreva um algoritmo que tenha nome de produto e preço exiba na tela os valores.
+String nomeEmpresa ='Pao de queijo Corp';
+Decimal preco = 1.80;
+
+
+System.debug('\n Nome: '+ nomeEmpresa +'\n' + 
+			' Preco: '+ preco 
+			);
+
+//3-Escreva um algoritmo que defina um valor inteiro e escreva (na tela) o seu antecessor. 
+Integer a =10;
+System.debug('\n o anterior de '+ a +' eh igual: ' + --a);
+
+//4-Escreva um algoritmo que tenha dois valores reais, some os valores e exiba o resultado.
+Decimal a = 10;
+Decimal b = 20;
+Decimal c = a+b;
+
+System.debug('\n o valor de '+ a +' mais '+ b +' eh igual: '+ c);
+
+//5-Escreva um algoritmo que receba uma idade, subtraia do ano atual e exiba o resultado, mostrando ‘Nascido em (valorDaSubtração)’.
+
+Integer idade = 23;
+Integer valorDaSubtracao = idade - 2022;
+
+System.debug('\n Nascido em: '+ valorDaSubtracao);
+
+//6-Escreva um algoritmo para definir as dimensões de um retângulo (base e altura), calcular e escrever a área do retângulo.
+Decimal base =3;
+Decimal altura =4;
+Decimal resultado = (base * altura)/2;
+
+System.debug('\n Area do retangulo e igual:  ' + resultado);
+
+//7-Escreva um algoritmo para definir o salário mensal atual de um funcionário e o percentual de reajuste de 25%. 
+//Calcular e escrever o valor do novo salário com o acréscimo do reajuste.
+//setScale para arrumar visualização da pontuação no numero mostrado
+setScale
+
+public Decimal setScale(Integer scale)
+
+Decimal salarioAtual =  5.000;
+Decimal Reajuste = (0.25*5.000);
+Decimal NovoValor = (salarioAtual + Reajuste);
+System.debug ('O salário com reajuste de 25% é: ' + NovoValor );
+NovoValor = NovoValor.setScale(-3);
+
+System.debug ('O salário com reajuste de 25% é: ' + NovoValor );
+
+//8-Escreva um algoritmo que atribua 3 notas, calcule a média e exiba o resultado.
+Decimal nota1 = 6;
+Decimal	nota2 = 7.5;
+Decimal nota3 = 4;
+Decimal	media = (nota1+nota2+nota3)/3;
+
+System.debug('\n Media final:  ' + media);
+
+//9-Faça um algoritmo que define três notas de um aluno, calcule e escreva a média final deste aluno.
+// Considerar que a média é ponderada e que o peso das notas é 2, 3 e 5. Fórmula para o cálculo da média final é:
+Decimal primeiraNota = 6;
+Decimal	segundaNota = 7.5;
+Decimal terceiraNota = 4;
+Decimal	media = (primeiraNota*2 + segundaNota*3 + terceiraNota*5)/10;
+
+System.debug('\n Media final:  ' + media.setScale(2));
