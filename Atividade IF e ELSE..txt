@@ -1,0 +1,137 @@
+//1- Defina um valor e escreva a mensagem ‘É MAIOR QUE 10!’ se o valor lido for maior que 10, caso contrário escrever NÃO É MAIOR QUE 10! 
+Integer numero = 6;
+
+if(numero>10){
+    system.debug('\N É MAIOR QUE 10!');
+}else{
+    system.debug('\N NÃO É MAIOR QUE 10!');
+}
+
+//2- Defina um valor e escreva se é positivo ou negativo (considere o valor zero como positivo). 
+Integer numero = -6;
+
+if(numero>=0){
+    system.debug('\N numero positivo');
+}else{
+    system.debug('\N numero negativo');
+}
+
+//3- Ler dois valores (considere que não serão lidos valores iguais) e escrevê-los em ordem crescente. 
+Integer numeroUm = 10;
+Integer numeroDois = 7;
+
+if( numeroUm == numeroDois){
+    System.debug('\n Numeros iguais nao sao aceitos '+ numeroUm +' '+ numeroDois);
+}else if( numeroUm < numeroDois){
+    System.debug('\n o primeiro numero é menor que o segundo e sua ordem crescente eh:  ' + numeroUm +' '+ numeroDois);
+}else{
+    System.debug('\n o primeiro numero é maior que o segundo e sua ordem crescente eh:  ' + numeroDois +' '+ numeroUm);
+}
+
+//4- Ler dois valores (considere que não serão lidos valores iguais) e escrever o maior deles. 
+Integer numeroUm = 10;
+Integer numeroDois = 7;
+
+if( numeroUm < numeroDois){
+    System.debug('\n o segundo numero é maior: ' + numeroDois);
+}
+else{
+    System.debug('\n o primeiro numero é maior:  ' + numeroUm);
+}
+
+//5- Ler o ano atual e o ano de nascimento de uma pessoa. Escrever uma mensagem que diga se ela poderá ou não votar este ano 
+//(não é necessário considerar o mês em que a pessoa nasceu). 
+Integer anoNascimento = 1998;
+Integer anoAtual = System.today().year();
+Integer idade = anoAtual - anoNascimento;
+
+System.debug('\n ANO ATUAL:  ' +anoAtual);
+
+if( idade >= 16 ){
+    System.debug('\n Parabens voce pode votar pois sua idade: ' + idade +' eh maior que 16 anos'  );
+}
+else{
+    System.debug('\n Voce nao pode votar pois sua idade: ' + idade +' eh menor que 16 anos'  );
+}
+
+//6- Defina as notas da 1a. e 2a. avaliações de um aluno. Calcular a média aritmética simples e escrever uma mensagem que diga 
+//se o aluno foi ou não aprovado (considerar que nota igual ou maior que 6 o aluno é aprovado). Escrever também a média calculada. 
+
+Decimal notaUm = 6;
+Decimal notaDois = 7.5;
+Decimal media = (notaUm + notaDois)/2;
+
+if( media >= 6 ){
+    System.debug('\n Parabens você foi aprovado. Media final:  ' + media.setScale(2));
+}
+else{
+    System.debug('\n Não foi dessa vez. Media final:  ' + media.setScale(2));
+}
+
+
+/*7- Defina dois valores e imprimir uma das três mensagens a seguir: 
+‘Números iguais’, caso os números sejam iguais
+ ‘Primeiro é maior’, caso o primeiro seja maior que o segundo;
+ ‘Segundo maior’, caso o segundo seja maior que o primeiro. */
+Integer numeroUm = 10;
+Integer numeroDois = 7;
+
+if( numeroUm == numeroDois){
+    System.debug('\n Numeros iguais: '+ numeroUm +' '+ numeroDois);
+}else if( numeroUm < numeroDois){
+    System.debug('\n o segundo numero é maior: ' + numeroDois);
+}else{
+    System.debug('\n o primeiro numero é maior:  ' + numeroUm);
+}
+
+/*8- Faça um algoritmo para definir: a descrição do produto (nome), a quantidade adquirida e o preço unitário. 
+Calcular e escrever o total (total = quantidade adquirida * preço unitário), o desconto e o total a pagar (total a pagar = total - desconto), 
+sabendo-se que: 
+Se quantidade <= 5 o desconto será de 2% - 
+Se quantidade > 5 e quantidade <=10 o desconto será de 3% - 
+Se quantidade > 10 o desconto será de 5%*/
+
+String nome ='Pao de queijo';
+Integer quantidade = 7;
+Decimal valorUnitario = 6;
+Decimal total;
+Decimal totalPagar;
+
+total = quantidade * valorUnitario;
+
+
+if( quantidade <= 5){
+	totalPagar = total-((total/100)*2);
+	
+	System.debug('\n Voce comprou '+ quantidade +' ' + nome+' no valor de: '+valorUnitario+' reais com o total de: '+total);
+    System.debug('\n Total a pagar com desconto de 2% eh ' + totalPagar);
+}
+else if( quantidade > 5 && quantidade <=10){
+	totalPagar = total-((total/100)*3);
+    
+    System.debug('\n Voce comprou '+ quantidade +' ' + nome+' no valor de: '+valorUnitario+' reais com o total de: '+total);
+    System.debug('\n Total a pagar com desconto de 3% eh ' + totalPagar);
+}
+else{
+	totalPagar = total-((total/100)*5);
+    
+    System.debug('\n Voce comprou '+ quantidade +' ' + nome+' no valor de: '+valorUnitario+' reais com o total de: '+total);
+    System.debug('\n Total a pagar com desconto de 5% eh ' + totalPagar);
+}
+
+/*9- Faça um algoritmo para ler: número da conta do cliente, saldo, débito e crédito. 
+Após, calcular e escrever o saldo atual (saldo atual = saldo - débito + crédito). 
+Também testar se saldo atual for maior ou igual a zero escrever a mensagem 'Saldo Positivo', senão escrever a mensagem 'Saldo Negativo'. */
+Decimal numeroDaConta = 62174891;
+Decimal saldo = 6000;
+Decimal	debito = 1000;
+Decimal credito= 500;
+
+saldo = saldo - debito + credito;
+
+if( saldo >= 0){
+    System.debug('\n Saldo positivo no valor de:  ' + saldo +' na conta: '+numeroDaConta);
+}else {
+    System.debug('\n Saldo negativo no valor de:  ' + saldo +' na conta: '+numeroDaConta);
+}
+
