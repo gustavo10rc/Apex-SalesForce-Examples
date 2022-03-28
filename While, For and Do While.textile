@@ -1,0 +1,134 @@
+//----------------Exemplo de contador While-------------------------
+Integer a=0;
+Integer b=0;
+
+while(a<=10){
+    System.debug(' \n A++: '+ a++);
+}
+System.debug('Agora com ++a');
+while(b<=10){
+    System.debug(' \n A++: '+ ++b);
+}
+
+//-------------For example. Exemplo de for------------------------
+For(Integer count=0; count<=500; count++){
+    System.debug(' \n Contador: '+ count);
+}
+
+//imprima valores de 0 até 500 de 5 em 5
+For(Integer count=0; count<=500; count+=5){
+    System.debug(' \n Contador: '+ count);
+}
+
+//imprima valores de 4 até 250 de 4 em 4
+For(Integer count=4; count<=250; count+=4){
+    System.debug(' \n Contador: '+ count);
+}
+
+//imprima valores de 200 até 2.
+For(Integer count=200; count>=2; count--){
+    System.debug(' \n Contador: '+ count);
+}
+
+//imprima valores de 300 até 3 de 3 em 3.
+For(Integer count=300; count>=3; count-=3){
+    System.debug(' \n Contador: '+ count);
+}
+
+//-----------------Intervalo-----------------------------------------------
+
+/*dentro do intervalo de 1 a 100, imprimir apenas de 1 a 10 e 90 a 100.*/ 
+for(integer c = 1; c<=100; c++){
+    if((c<=10) || (c>=90)){
+        system.debug(c);
+    }
+}
+
+//-------------------While examples.-----------------------------------------
+
+//imprima valores de 0 até 500 
+Integer a=0;
+while(a<=500){
+    System.debug(' \n A++: '+ a++);
+}
+
+//imprima valores de 0 até 500 de 5 em 5
+Integer a=0;
+while(a<=500){
+    System.debug(' \n A+=5: '+ a);
+    a+=5;
+}
+
+//imprima valores de 4 até 250 de 4 em 4
+Integer a=4;
+while(a<=250){
+    System.debug(' \n A+=4: '+ a);
+    a+=4;
+}
+//imprima valores de 200 até 2.
+Integer a=200;
+while(a>=2){
+    System.debug(' \n A--: '+ a--);
+}
+
+//imprima valores de 300 até 3 de 3 em 3.
+Integer a=300;
+while(a>=3){
+    System.debug(' \n A-=3: '+ a);
+    a-=3;
+}
+
+//---------------------Do while--------------------------------
+Integer a=300;
+
+do{
+    System.debug(' \n A-=3: '+ a);
+    a-=3;
+}while(a>=3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+List<Integer> myList = new List<Integer>(); // Define a new list
+
+For(Integer count=1; count<=20; count++){
+   
+    myList.add(count);                    // Adds a second element of value 47 to the end of the list
+}
+
+For(Integer count=1; count<=20; count++){
+   Integer i = myList.get(count);
+   if(Math.mod(i,2) ==0)
+   {
+   		System.debug(' \n Contador: '+ count);
+   }
+}
+
+//Integer i = myList.get(0);                   // Retrieves the element at index 0
+//myList.set(0, 1);                           // Adds the integer 1 to the list at index 0
+//myList.clear();
+
+*/
