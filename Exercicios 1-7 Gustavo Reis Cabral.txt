@@ -1,0 +1,166 @@
+//1-Defina uma lista de bandas favoritas.Remova os 2 últimos valores
+//Adicione outros 3 Valores após
+
+List<String> lstBandas = new List<String>();
+lstBandas.add(' Pink floyd');
+lstBandas.add(' Imagine Dragons');
+lstBandas.add(' Banda Djavu');
+
+System.debug(' \n Lista antes da remocao: '+ lstBandas);
+
+lstBandas.remove(2);
+lstBandas.remove(1);
+
+System.debug(' \n Lista depois da remocao: '+ lstBandas);
+
+lstBandas.add(' Maroon five');
+lstBandas.add(' Bon Jovi');
+lstBandas.add(' BTS');
+
+System.debug(' \n Lista depois da adicao: '+ lstBandas);
+
+//2- Crie uma lista com 8 índices já pré-definidos. Coloque um valor aleatório como 3 posição.
+//Adicione uma nova posição com um valor aleatório
+//Remova o valor da nova posição
+
+List<Integer> myList = new Integer[9];
+Integer a=0;
+// Em alguns exercicios eu fiz com .add e outros com .set 
+//apenas para treinar mesmo e mostrar que os dois funcionam.
+For(Integer count=1; count<=8; count++){
+  myList.set(a++,count);
+  System.debug(' \n Adicionei: '+ myList);
+}
+
+myList.set(3, 47);
+System.debug('Com numero aleatorio:'+myList);
+
+myList.set(9, 49);
+System.debug('Com numero aleatorio em nova posicao:'+myList);
+
+myList.remove(9);
+System.debug('Numero aleatorio removido da nova posicao:'+myList);
+
+// 3- Criar uma lista de números aleatórios com idades diferentes
+//Gerar a média entre os valores
+//Verificar se existe um valor dentro da lista e armazenar em uma variável booleana
+//Obter o maior número da lista
+//Obter o menor número da lista
+
+List<Decimal> idades = new List<Decimal>();
+
+idades.add(25);
+idades.add(30);
+
+
+System.debug(' \n Adicionei: '+ idades);
+
+Decimal media = (idades.get(0) + idades.get(1))/2;
+System.debug('media: '+media);
+
+Boolean armazenar = idades.size()>0? True : false;
+
+System.debug('Boleano. Tem valores armazenados na lista: '+armazenar);
+
+
+if( idades.get(0) > idades.get(1)){
+    system.debug('o maior valor é o: '+idades.get(0) +'\no menor valor é o: '+idades.get(1));
+}
+else{
+    system.debug('o maior valor é o: '+idades.get(1)+'\no menor valor é o: '+idades.get(0));
+}
+
+//4- Criar uma lista de decimais 
+//Antes de adicionar algum valor, verificar se a lista está vazia.
+//Adicionar 5 valores.
+//Somar o 1 e último valor
+//Limpar toda a lista
+//Armazenar em uma variável a quantidade de valores que tem na lista
+
+List<Decimal> listaDecimal = new List<Decimal>();
+
+Boolean armazenar = listaDecimal.size()>0? True : false;
+System.debug('Boleano. Tem valores armazenados na lista: '+armazenar);
+
+
+For(Integer count=1; count<=6; count++){
+  listaDecimal.add(count);
+  System.debug(' \n Adicionei: '+ listaDecimal);
+}
+Decimal resultado = listaDecimal.get(0) + listaDecimal.get(5);
+System.debug('primeiro: '+listaDecimal.get(0)+' e ultimo '+listaDecimal.get(5)+' valor armazenados na lista somados eh: '+resultado);
+
+listaDecimal.clear();
+System.debug('lista limpa:' + listaDecimal);
+
+Decimal valor = listaDecimal.size();
+System.debug('tamanho da lista eh zero pois foi limpa:'+ listaDecimal);
+
+//5 Criar uma lista de 10 números utilizando um loop.
+
+List<Integer> myList = new Integer[10];
+Integer a=0;
+
+For(Integer count=1; count<=10; count++){
+  myList.set(a++,count);
+  System.debug(' \n Adicionei: '+ myList);
+}
+
+//6 Cria 2 Listas 1 com valores Pares e outra com valores ímpares, utilizando um loop.
+List<Integer> myListPar = new List<Integer>();
+List<Integer> myListImpar = new List <Integer>();
+Integer count=0;
+
+Do{
+    if(Math.mod(count,2)==0)
+   {
+   		myListPar.add(count);
+		System.debug(' \n Lista par: '+ myListPar);
+   }else{
+       myListImpar.add(count);
+		System.debug(' \n Lista impar: '+ myListImpar);
+   }
+ count++;
+
+}while(count<=10);
+
+/*7 
+Crie 2 listas com 
+1-Cores:Amarelo, Azul, Verde, Cinza, Marrom, Vermelho;
+1-Tonalidades:Escuro e Claro
+
+Remova os 3 últimos valores da lista 1
+Adicione 3 valores após Laranja, Branco e Preto
+Junte 3 cores com tonalidades diferentes.
+*/
+
+List<String> cores = new List<String>();
+List<String> tonalidades = new List <String>();
+
+cores.add('Amarelo');
+cores.add('Azul');
+cores.add('Verde');
+cores.add('Cinza');
+cores.add('Marrom');
+cores.add('Vermelho');
+
+tonalidades.add('Escuro');
+tonalidades.add('Claro');
+
+system.debug('Lista de cores: '+cores);
+system.debug('Lista de tonalidades: '+tonalidades);
+
+cores.remove(5);
+cores.remove(4);
+cores.remove(3);
+
+cores.add('Laranja');
+cores.add('Branco');
+cores.add('Preto');
+
+cores.set(0,cores.get(0)+' '+tonalidades.get(0));
+cores.set(1,cores.get(1)+' '+tonalidades.get(1));
+cores.set(2,cores.get(2)+' '+tonalidades.get(1));
+
+
+system.debug('Lista de cores apos modificacoes: '+cores);
