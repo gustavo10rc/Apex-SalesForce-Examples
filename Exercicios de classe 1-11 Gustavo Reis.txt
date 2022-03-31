@@ -1,0 +1,235 @@
+//1) mostre valores de 33 a 333 de 3 em 3.
+
+For(Integer count=33; count<=333; count+=3){
+    System.debug(' \n Contador: '+ count);
+}
+
+// 2) usando while, mostre valores de 0 a 100 de 10 em 10.
+
+Integer count=0;
+
+while(count<=100){
+	System.debug(' \n Lista 0 a 100: '+ count);
+	count+=10;
+}
+
+//3) usando o do-while, mostre valores de 70 a 0.
+Integer count=70;
+
+Do{
+	System.debug(' \n Lista 70 a 0: '+ count);
+	count--;
+}while(count>=0);
+
+/* 4) crie uma Lista  de valores String com 8 nome de séries. Mostre em formato de ranking esses valores da lista. 
+Ex: 
+As mais assistidas.
+1 - série x
+2 - série y
+8 - série w */
+
+List<String> listaSeries = new List<String>();
+
+listaSeries.add('1-Sherlock');
+listaSeries.add('2-Outlander');
+listaSeries.add('3-Peaky Blinders');
+listaSeries.add('4-WeCrashed');
+listaSeries.add('5-Upload');
+listaSeries.add('6-The Walking Dead');
+listaSeries.add('7-This is Us');
+listaSeries.add('8-Dragon Ball Z');
+
+For(Integer count=0; count<=7; count++){
+ System.debug(' \n Ranking: '+listaSeries[count]);
+}
+
+/*5) crie uma Lista com os seguintes valores (A, B, C, D, E, F). Baseado nas posições dessa lista, imprima as seguintes palavras.
+a) FACA
+b) BABA
+C) FADA
+d) ACABADA
+*/
+//5)
+
+List<String> Letras = new String [6];
+
+Letras[0] = 'A';
+Letras[1] = 'B';
+Letras[2] = 'C';
+Letras[3] = 'D';
+Letras[4] = 'E';
+Letras[5] = 'F';
+
+system.debug(Letras[5] + Letras[0] + Letras[2] + Letras[0]);
+system.debug(Letras[1] + Letras[0] + Letras[1] + Letras[0]);
+system.debug(Letras[5] + Letras[0] + Letras[3] + Letras[0]);
+system.debug(Letras[0] + Letras[2] + Letras[0] + Letras[1]+ Letras[0]+Letras[3]+Letras[0]);
+//system.debug(Letras[1]+'-BABA');
+//system.debug(Letras[2]+'-FADA');
+//system.debug(Letras[3]+'-ACABADA');
+
+/*6) Crie um Map com chave e valores String. Com os valores abaixo, respectivamente:
+key - valor
+empresa - mamaco corp
+ceo - romero brito
+valor - 8000000
+cnpj - 1233210001-99
+
+Com o Map criado mostre a seguinte frase, através das chaves e valores: (obs *indica os valores existentes no map*)
+A empresa *mamaco corp* alcançou o valor de mercado de *8000000*. O CEO *romero brito* declarou ser o primeiro passo para dominar o mundo.
+*/
+
+Map<String,String> empresa = new Map<String,String>();
+empresa.put('key', '123456789');
+empresa.put('empresa', 'Mamaco Corp');
+empresa.put('ceo', 'Romemo Brito');
+empresa.put('valor', '8000000');
+empresa.put('cnpj', '1233210001-99');
+
+system.debug(empresa);
+system.debug('A empresa '+ empresa.get('empresa') +' alcançou o valor de mercado de '+empresa.get('valor') +
+			 '. O CEO '+empresa.get('ceo') +' declarou ser o primeiro passo para dominar o mundo.');
+
+/*7) Explique os conceitos de POO e dê exemplos: Classe, Método, Atributo, Objeto.
+
+
+
+8) Diferencie os conceitos de herança e polimorfismo.
+
+
+9) Crie uma classe Gato, com os atributos string nome, peso, raça, com os seguintes métodos: 	
+	método miar, que imprime:  *nome*  disse: MIAAAAAUU.
+	método andar, que imprime: *nome* está andando.
+	método roronar, que imprime: “nome* está roronando.
+	método infoGato, que imprime os valores dos atributos nome, peso, raça.
+
+Realize testes na classe criada, através dos objetos.
+*/
+	
+	public class Gato{
+		String nome = 'Mortadela';
+		Decimal peso =5;
+		String raca ='Persa';
+
+		public void Miar() {
+			system.debug('\n : O gatinho '+ nome +' Miouuu');  
+		}
+
+		public void Andar() {
+			system.debug('\n o gato '+ nome +'esta andando');
+		}
+
+		public void Ronronar() {
+			system.debug('\n o gato '+ nome +'esta ronronando');
+		}
+
+		public void InfoGato() {
+			system.debug('\n o gato tem o nome: '+ nome +', o peso '+ peso +' e a raca'+raca);
+		}
+	}
+//criando o objeto
+
+Gato newGatinho = new Gato();
+newGatinho.Miar(); 
+newGatinho.Andar();
+newGatinho.Ronronar();
+newGatinho.InfoGato();
+
+/*
+10)Crie uma classe chamada Pizzaria, com o seguinte método:
+	pedir(String pizza), com o parâmetro recebido verifique:
+		Se pizza igual a Calabresa, imprimir:
+			Pizza de Calabresa, valor R$ 45,00
+		Se pizza igual a 4Queijos, imprimir:
+			Pizza 4 Queijos, valor R$ 50,00
+		Se pizza igual a Maria Bonita, imprimir:
+			Pizza Maria Bonita, R$ 60,00
+		Senão, imprimir
+			Não possuímos essa Pizza.
+
+Realize testes na classe criada, através dos objetos.
+*/
+
+public class Pizzaria {
+    
+    public String Pedir(String pizza){
+
+        if(pizza=='Calabresa'){
+            return 'Pizza de Calabresa, valor R$ 45,00';
+            
+        }else if  (pizza =='4Queijos'){
+            return 'Pizza 4 Queijos, valor R$ 50,00';
+            
+        }else if(pizza == 'Maria Bonita'){
+            return 'Pizza Maria Bonita, R$ 60,00';
+        }else{
+            return 'Não possuímos essa Pizza.';
+        }
+	}
+}
+//Criando o objeto
+Pizzaria newPizzaria = new Pizzaria();
+system.debug('\n resultado: '+ newPizzaria.Pedir('Calabresa')); 
+system.debug('\n resultado: '+ newPizzaria.Pedir('4Queijos'));
+system.debug('\n resultado: '+ newPizzaria.Pedir('Maria Bonita'));
+system.debug('\n resultado: '+ newPizzaria.Pedir('Frango Catupiry')); 
+
+/*
+11)Crie uma classe chamada CalculadoraMagica, que tenha as funções abaixo. Todas as funções devem receber dois parâmetros(a,b) 
+	inteiros e devem retornar o resultado para fora da função.
+
+somar - retorna a soma de a e b
+subtrair - retorna a subtração de a e b
+dividir - retorna a divisão de a e b
+multiplicar - retorna a multiplicação de a e b
+quadradoDeA - retorna o valor de a ao quadrado.
+quadradoDeB - retorna o valor de b ao quadrado.
+aMaior - verifica se A é maior que B, se sim retorna A é maior, senão retorna A não é maior.
+media - retorna a media de a e b.
+*/
+
+public class CalculadoraMagica {
+	
+    public Decimal Somar(Decimal a, Decimal b){
+        return a+b;
+    }
+    public Decimal Subtrair(Decimal a, Decimal b){
+        return a-b;
+    }
+    public Decimal Dividir(Decimal a, Decimal b){
+    	return a/b;
+    }
+    public Decimal Multiplicar(Decimal a, Decimal b){
+        return a*b;
+    }
+    public Decimal QuadradoDeA(Decimal a){
+        return a*a;
+    }
+    public Decimal QuadradoDeB(Decimal b){
+        return b*b;
+    }
+    public Decimal aMaior (Decimal a, Decimal b){
+        if(a>b){
+        	return a;
+        }else{
+        	return b;
+        }
+    }
+    public Decimal Media(Decimal a, Decimal b){
+        return (a+b)/2;
+    }
+
+}
+
+//Criando o objeto
+CalculadoraMagica newCalculadora = new CalculadoraMagica();
+
+system.debug('\n resultado da soma: '+ newCalculadora.Somar(3,4)); 
+system.debug('\n resultado da subtracao: '+ newCalculadora.Subtrair(3,4)); 
+system.debug('\n resultado da divisao: '+ newCalculadora.Dividir(3,4)); 
+system.debug('\n resultado da multiplicacao: '+ newCalculadora.Multiplicar(3,4)); 
+system.debug('\n resultado do QuadradoDeA: '+ newCalculadora.QuadradoDeA(5,2)); 
+system.debug('\n resultado do QuadradoDeB: '+ newCalculadora.QuadradoDeB(7,2)); 
+system.debug('\n O maior numero eh: '+ newCalculadora.aMaior(8,7));
+system.debug('\n resultado da media: '+ newCalculadora.Media(8,7)); 
+
