@@ -1,0 +1,251 @@
+/*ATIVIDADE PRÁTICA
+
+Apex com SOQL
+
+1-Imprima no apex o nome, empresa, estado/província e email de todos os leads que 
+pertencem aos estados CA ou VA, ordenados pelo nome de forma decrescente. */
+
+List <Lead> lstLeads = [
+select name, Company,State, Email 
+from lead  
+where State = 'CA' or State = 'va' ORDER BY name desc];
+
+for(Lead ld : lstLeads){
+
+System.debug('INFORMACOES DE LEADS ');
+System.debug('nome: '+ ld.Name);
+System.debug('empresa: ' + ld.Company);
+System.debug('estado: ' + ld.State);
+System.debug('Email: ' + ld.Email);
+System.debug('\n');
+}
+
+/*2- Imprima no apex o nome e status dos leads 
+com status working not contacted e que possuam ‘Co’ em qualquer parte do nome. */
+
+List <Lead> lstLeads = [
+
+select name, Status from lead  
+where Status = 'working - contacted' and name like '%Co%'];
+
+for(Lead ld : lstLeads){
+
+System.debug('INFORMACOES DE LEADS ');
+System.debug('nome: '+ ld.Name);
+System.debug('Status: ' + ld.Status);
+System.debug('\n');
+}
+
+
+/*3- Imprima no apex o nome, cargo e telefone dos contatos que possua
+ United ou Ltd em qualquer parte do nome da conta. */
+
+LIST <Contact> novoContato = [
+    SELECT Name, Title, Phone
+    FROM Contact
+    WHERE Name = '%United%' OR Name LIKE '%Ltd%'
+];
+
+for (Contact cont : novoContato){
+    system.debug('Nome: '+ cont.Name);
+    system.debug('Cargo: '+cont.Title);
+    system.debug('Telefone: '+cont.Phone);
+}
+
+/*4- Imprima em apex o nome, phone, rating, data de criação das contas 
+ordenados por data de criação decrescente, mostrando também o nome e telefone 
+dos contatos ordenados por nome ligados a cada uma das contas.*/
+
+List<Account> accounts = [
+   select name, phone, rating, createdDate, (select name, phone from contacts ORDER by name)
+   from account ORDER by createdDate desc
+];
+
+for(Account acc : accounts) {
+
+    System.debug ('\n \n Informações de Contas');
+    System.debug ('Nome: ' + acc.Name); 
+    System.debug ('Telefone: ' + acc.phone);
+    System.debug ('Classificacao: ' + acc.rating);
+    System.debug ('Data da criacao: ' + acc.createdDate);
+
+    for(contact cont: acc.contacts){
+    	
+    	System.debug ('\n Contatos');
+		System.debug ('Nome: ' + cont.Name);
+    	System.debug ('Telefone: ' + cont.phone + '\n');
+    }
+    
+} 
+
+
+//Apex DML
+//5-Com Apex, insira 5 leads atribuindo valores aos
+// campos considerados obrigatórios. Essa questão deve ser feita SEM LISTA.
+Lead newLead = New Lead(
+    
+FirstName='cleitinho',
+LastName='De jesus',
+Company='pao de queijo corp',
+Phone = '12345678910'
+);
+
+
+Lead newLead2 = New Lead(
+    
+FirstName='Joana',
+LastName='De cristo',
+Company='pao de alho corp',
+Phone = '12345678914'
+);
+
+Lead newLead3 = New Lead(
+    
+FirstName='Josevaldo',
+LastName='neto',
+Company='pao de forma corp',
+Phone = '12345678913'
+);
+
+Lead newLead4 = New Lead(
+    
+FirstName='Sandy',
+LastName='Junior',
+Company='pao frances corp' ,
+Phone = '12345678912'
+
+);
+
+Lead newLead5 = New Lead(
+    
+FirstName='Margarida',
+LastName='bisneta do junior',
+Company='pao cachorrao corp' ,
+Phone = '12345678911'
+
+);
+
+insert newLead;
+insert newLead2;
+insert newLead3;
+insert newLead4;
+insert newLead5;
+
+//6-Com Apex, insira 5 Contas atribuindo valores aos campos 
+//considerados obrigatórios. Essa questão deve ser feita SEM LISTA.
+
+Account newAcc1 = New Account(
+Name='pao de brioche corp'
+);
+
+Account newAcc2 = New Account(
+Name='Pao australiano corp'
+);
+
+Account newAcc3 = New Account(
+Name='pao de acucar corp'
+);
+
+Account newAcc4 = New Account(
+Name='pao arabe. corp'
+);
+
+Account newAcc5 = New Account(
+Name='pao sovado corp'
+);
+
+insert newAcc1;
+insert newAcc2;
+insert newAcc3;
+insert newAcc4;
+insert newAcc5;
+
+//7-Com Apex, insira uma lista de 10 Contas com valores obrigatórios, utilizando apenas um insert.
+
+Account cont1 = new Account(Name='Milkshake oreo corp');
+Account cont2 = new Account(Name='Milkshake banana corp');
+Account cont3 = new Account(Name='Milkshake morango corp');
+Account cont4 = new Account(Name='Milkshake flocos corp');
+Account cont5 = new Account(Name='Milkshake coco corp');
+Account cont6 = new Account(Name='Milkshake sensacinal corp');
+Account cont7 = new Account(Name='Milkshake chocolate corp');
+Account cont8 = new Account(Name='Milkshake ovomaltine corp');
+Account cont9 = new Account(Name='Milkshake frutas vermelhas corp');
+Account cont10 = new Account(Name='Milkshake zero acucar corp');
+
+
+List<Account> contas = new List<Account>();
+contas.add(cont1);
+contas.add(cont2);
+contas.add(cont3);
+contas.add(cont4);
+contas.add(cont5);
+contas.add(cont6);
+contas.add(cont7);
+contas.add(cont8);
+contas.add(cont9);
+contas.add(cont10);
+
+insert contas;
+
+//8-Com Apex, atualize 3 registros de conta de sua escolha 
+//alterando valores dos campos nome, telefone e classificação.
+Account conta = new Account(
+name = 'Fabiola',
+phone = '88774004',
+rating = 'Hot' ,
+Id = '0018c00002GglWxAAJ'
+);
+
+update conta;
+
+Account conta2 = new Account(
+name = 'Fabio',
+phone = '88774001',
+rating = 'Hot' ,
+Id = '0018c00002GglX9AAJ'
+);
+
+update conta2;
+
+Account conta3 = new Account(
+name = 'Fafa de belem',
+phone = '88777899',
+rating = 'Hot' ,
+Id = '0018c00002GglXBAAZ'
+);
+
+update conta3;
+
+//9-Com Apex, atualize o estado/província para CE de todas as contas que possuem o estado/província vazios.
+List<Account> contNulas = [
+    select name,billingCountry from account where billingCountry = null
+];
+
+for(Account acc: contNulas){
+    acc.billingCountry = 'CE';
+}
+
+update contNulas;
+
+//10-Delete 3 registros de sua escolha em Oportunidade e Contas
+
+Account acc = new Account(
+	Id = '0018c00002GglWxAAJ'
+	);
+delete acc;
+
+Account acc1 = new Account(
+	Id = '0018c00002GglX9AAJ'
+	);
+delete acc1;
+
+Account acc2 = new Account(
+	Id = '0018c00002GglXBAAZ'
+	);
+delete acc2;
+
+
+
+
+
