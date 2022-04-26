@@ -1,0 +1,61 @@
+//1 - Antes de atualizar uma oportunidade, Se a fase anterior estiver fechada e perdida e tentarem alterar para 
+//qualquer outra nova fase. Emitir mensagem de erro.
+
+trigger triggerOpportunity on Opportunity (before update) {
+   
+    String event = String.valueOf(trigger.operationType);
+        
+	if(event == 'BEFORE_UPDATE'){
+		for(Opportunity opp: Trigger.new){
+			if(trigger.old[0].StageName == 'Closed lost' && opp.StageName != 'Closed Lost' ){
+			opp.addError('Não é possivel alterar a classificação pois ela é perdida');
+			}
+		}
+	}
+}
+ 
+
+//2 - Após a atualização de uma oportunidade, se o valor for maior ou igual a 50000 e a fase estiver fechada e ganha,
+//crie uma tarefa associada a ela, com o assunto: Parabenizar a empresa pela nova aquisição.
+
+trigger triggerOpportunity on Opportunity (after update) {
+   
+    String event = String.valueOf(trigger.operationType);
+        
+	if(event == 'AFTER_UPDATE'){
+		for(Opportunity opp: Trigger.new){
+			if(opp.Amount >= 50000   && opp.StageName == 'Closed Won'){
+				
+				Task newTask = new Task(
+            		Subject = 'Parabenizar a empresa pela nova aquisição.',
+                	Priority = 'Low',
+                    WhatId = opp.id
+            	);
+             	insert newTask; 
+			}
+		}
+	}
+}
+
+//3 -  Após inserir um Lead, a receita anual estiver superior a 50000, criar uma tarefa com assunto verificar se o 
+//cadastro está completo associado ao lead.
+
+trigger LeadTrigger on Lead (after Insert) {
+    
+    String event = String.valueOf(trigger.operationType);
+        
+	if(event == 'AFTER_INSERT'){
+		for(Lead ld: Trigger.new){
+
+			if(ld.AnnualRevenue > 50000){
+				
+				Task newTask = new Task(
+            		Subject = 'verificar se o cadastro está completo associado ao lead',
+                	Priority = 'Low',
+                    WhoId = ld.id
+            	);
+             	insert newTask; 
+			}
+		}
+	}
+}
