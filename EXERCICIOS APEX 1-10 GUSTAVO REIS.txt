@@ -245,7 +245,17 @@ Account acc2 = new Account(
 	);
 delete acc2;
 
+Opportunity opp1 = new Opportunity(
+    Id = '0068c00000p53PYAAY'
+    );
+delete opp1;
 
+Opportunity opp2 = new Opportunity(
+    Id = '0068c00000p53Q0AAI'
+    );
+delete opp2;
 
-
-
+Opportunity opp3 = new Opportunity(
+    Id = '0068c00000mYaKHAA0'
+    );
+delete opp3;
